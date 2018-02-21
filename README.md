@@ -13,3 +13,10 @@ Home to all the miscellaneous code I wrote meant for fun or just for fun.
   * **Some Fun and not-so-Fun Facts:**
     * I did not sit in the placements.
     * Eventually, it turned out that the ~~hackathon~~ datathon wasn't just for full-time recuritments. It was for interns too.
+
+## [zs-rare-disease](zs-rare-disease):
+  * **What is it about:** This was again during the ultimate quest of placements in my university. Another company hosted an online challenge and another friend of mine popped into my room while I was pondering over yet another possible solution for my thesis-project. Well, this particular friend of mine was from the Mechanical Engineering Dept. and was *blinded* by job security. Though programming didn't fascinate him, he still wanted to give this one a shot. So the task this time was to build a model that would predict whether a person ~~deceased~~ diseased or not.
+  * **Some Fun and not-so-Fun Facts:**
+    * There were 26 features whose name wasn't disclosed.
+    * The data was very biased as there were ~19000 negative labels as compared ~1000 positives.
+    * There was a minor flaw in the initial code I gave him. I told him to correct it but he didn't. He really was determined to get into the company, well done mate! :sleepy:.
