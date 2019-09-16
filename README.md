@@ -15,8 +15,16 @@ Home to all the miscellaneous code I wrote meant for fun or just for fun.
     * Eventually, it turned out that the ~~hackathon~~ datathon wasn't just for full-time recuritments. It was for interns too.
 
 ## [zs-rare-disease](zs-rare-disease):
-  * **What is it about:** This was again during the ultimate quest of placements in my university. Another company hosted an online challenge and another friend of mine popped into my room while I was pondering over yet another possible solution for my thesis-project. Well, this particular friend of mine was from the Mechanical Engineering Dept. and was *blinded* by job security. Though programming didn't fascinate him, he still wanted to give this one a shot. So the task this time was to build a model that would predict whether a person ~~deceased~~ diseased or not.
+  * **What is it about:** This was again during the ultimate quest of placements in my university. Another company hosted an online challenge and another friend of mine popped into my room while I was pondering over yet another possible solution for my thesis-project. Well, this particular friend of mine was from the Mechanical Engineering Dept. and was *blinded* by job security. Though programming didn't fascinate him, he still wanted to give this one a shot. So the task this time was to build a model that would predict whether a person is ~~deceased~~ diseased or not.
   * **Some Fun and not-so-Fun Facts:**
-    * There were 26 features whose name wasn't disclosed.
+    * There were 26 features whose names weren't disclosed.
     * The data was very biased as there were ~19000 negative labels as compared ~1000 positives.
     * There was a minor flaw in the initial code I gave him. I told him to correct it but he didn't. He really was determined to get into the company, well done mate! :sleepy:.
+
+## [bathroom_scheduler](bathroom_scheduler):
+  * **What is it about:** It's been about an year since I moved to Canada (pursuing my Masters in CS, yay! :smiley: ). I live in a unit with five rooms, and two bathrooms. Fortunately, some of my unit mates are as paranoid as me when it came to cleanliness. However, unsurprisingly, we human beings don't do anything unless we are constantly reminded of it. So, a bathroom schedule was what we needed and that's exactly what the script does. However, I've tried to keep it as generic as possible so that one has to simply change variable values to translate the script for any other scheduling-type task.
+
+  * **Some Fun and not-so-Fun Facts:**
+    * A small catch I realized while generalizing the script was to make the list of room numbers cyclic.
+    * I am paranoid about punctuations too :grin: (quite ironic, huh :wink:)
+
