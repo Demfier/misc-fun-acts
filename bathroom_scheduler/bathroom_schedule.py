@@ -23,3 +23,4 @@ while curr_date < end_date:
 
 with open('bathroom_schedule_unit{}.tsv'.format(unit_num), 'w') as f:
     f.write(schedule_line)
+
