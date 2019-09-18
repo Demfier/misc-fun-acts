@@ -84,7 +84,6 @@ def main():
     t = []
     for s in slist:
         trieInsert(t, s)
-    print(t)
     prefix = ''
     triestrings = []
     getStringsAsList(t, prefix, triestrings)
@@ -129,8 +128,6 @@ def main():
     prefix = ''
     triestrings = []
     getStringsAsList(t, prefix, triestrings)
-    print((sorted(slistunique) == sorted(triestrings)), consistent(t))
-    print(len(triestringsold), len(triestrings), len(slistunique))
     if((sorted(slistunique) != sorted(triestrings)) or (not consistent(t))):
         print('failed')
     else:

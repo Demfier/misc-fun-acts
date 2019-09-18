@@ -14,33 +14,55 @@ structure your code.
 # operation in a Trie
 
 
+class Trie:
+    def __init__(self):
+        self.epsilon = [[], [], [], []]
+        self.is_terminal = False
+
+
+def insert_helper(t):
+    n = Trie()
+    t.append(n.epsilon)
+    t.append(n.is_terminal)
+
+
 def trieInsert(t, s):
-    """
-    You need to implement this method.
-    """
-    if not t:
-        t = [[[], [], [], []], False]
-    root = t
-    for level in range(len(s)):
+    sub_t = t
+    if(len(t) == 0):
+        insert_helper(t)
+    if(len(s) == 0):
+        t[1] = True
+    for i in range(len(s)):
+        index = ord(s[i]) - ord('0')
+        sub_t = sub_t[0][index]
+        if(len(sub_t) == 0):
+            insert_helper(sub_t)
+    sub_t[1] = True
+
+
+def delete_helper(t, s, level):
+    if(level < len(s)):
         index = int(s[level])
-        if not root[0][index]:
-            root[0][index] = [[[], [], [], []], False]
-        root = root[0][index]
-    root[1] = True
+        if(len(t) == 0):
+            return []
+        t[0][index] = delete_helper(t[0][index], s, level + 1)
+        if(t == [[[], [], [], []], False]):
+            t = []
+    if level == len(s):
+        if len(t[0][0]) > 0 or len(t[0][1]) > 0 or len(t[0][2]) > 0 or len(t[0][3]) > 0:
+            t[1] = False
+        else:
+            t = []
+    return t
 
 
 def trieDelete(t, s):
-    """
-    You need to implement this method.
-    """
-    if not t:
+    if(not trieFind(t, s)):
         return
-    for level in range(len(s)):
-        index = int(s[level])
-        if not t:
-            return
-        t = t[0][index]
-    t[1] = False
+    temp = t
+    t = delete_helper(temp, s, 0)
+    if(t == [[[], [], [], []], False]):
+        t.clear()
 
 
 def trieFind(t, s):
