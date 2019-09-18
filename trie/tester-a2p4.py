@@ -83,7 +83,8 @@ def main():
     print('Testing trieInsert()...', end='')
     t = []
     for s in slist:
-        t = trieInsert(t, s)
+        trieInsert(t, s)
+    print(t)
     prefix = ''
     triestrings = []
     getStringsAsList(t, prefix, triestrings)

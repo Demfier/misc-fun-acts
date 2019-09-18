@@ -14,41 +14,19 @@ structure your code.
 # operation in a Trie
 
 
-def getStringsAsList(t, prefix, result):
-    """
-    Given trie t, and a prefix string prefix, add all strings we find
-    in t to the list result
-    """
-
-    if not t:
-        return
-    if len(t) == 0:
-        return
-    if t[1]:  # the prefix string is in the set
-        result.append(prefix)
-
-    for i in range(4):
-        newprefix = prefix + str(i)
-        getStringsAsList(t[0][i], newprefix, result)
-
-
 def trieInsert(t, s):
     """
     You need to implement this method.
     """
-    triestrings = []
-    getStringsAsList(t, '', triestrings)
-    triestrings.append(s)
-    t = [[[], [], [], []], False] if not t else t
-    for s in triestrings:
-        pCrawl = t
-        for level in range(len(s)):
-            index = int(s[level])
-            if not pCrawl[0][index]:
-                pCrawl[0][index] = [[[], [], [], []], False]
-            pCrawl = pCrawl[0][index]
-        pCrawl[1] = True
-    return t
+    if not t:
+        t = [[[], [], [], []], False]
+    root = t
+    for level in range(len(s)):
+        index = int(s[level])
+        if not root[0][index]:
+            root[0][index] = [[[], [], [], []], False]
+        root = root[0][index]
+    root[1] = True
 
 
 def trieDelete(t, s):

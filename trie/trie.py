@@ -1,8 +1,17 @@
 # Python program for insert and search
 # operation in a Trie
 
+class TrieNode:
+
+    # Trie node class
+    def __init__(self):
+        self.children = [None]*26
+
+        # isEndOfWord is True if node represent the end of the word
+        self.isEndOfWord = False
 
 class Trie:
+
     # Trie data structure class
     def __init__(self):
         self.root = self.getNode()
@@ -10,17 +19,18 @@ class Trie:
     def getNode(self):
 
         # Returns new trie node (initialized to NULLs)
-        return [[[], [], [], []], False]
+        return TrieNode()
 
-    def _charToIndex(self, ch):
+    def _charToIndex(self,ch):
 
         # private helper function
         # Converts key current character into index
         # use only 'a' through 'z' and lower case
 
-        return int(ch)
+        return ord(ch)-ord('a')
 
-    def insert(self, key):
+
+    def insert(self,key):
 
         # If not present, inserts key into trie
         # If the key is prefix of trie node,
@@ -31,12 +41,13 @@ class Trie:
             index = self._charToIndex(key[level])
 
             # if current character is not present
-            if not pCrawl[0][index]:
-                pCrawl[0][index] = self.getNode()
-            pCrawl = pCrawl[0][index]
+            if not pCrawl.children[index]:
+                pCrawl.children[index] = self.getNode()
+            pCrawl = pCrawl.children[index]
+        print(self.root.children, key)
 
         # mark last node as leaf
-        pCrawl[1] = True
+        pCrawl.isEndOfWord = True
 
     def search(self, key):
 
@@ -47,19 +58,20 @@ class Trie:
         length = len(key)
         for level in range(length):
             index = self._charToIndex(key[level])
-            if not pCrawl[0][index]:
+            if not pCrawl.children[index]:
                 return False
-            pCrawl = pCrawl[0][index]
+            pCrawl = pCrawl.children[index]
 
-        return pCrawl is not None and pCrawl[1]
-
+        return pCrawl != None and pCrawl.isEndOfWord
 
 # driver function
 def main():
 
     # Input keys (use only 'a' through 'z' and lower case)
-    keys = ["2201", "0", "110", "1201"]
-    output = ["Not present in trie", "Present in trie"]
+    keys = ["the","a","there","anaswe","any",
+            "by","their"]
+    output = ["Not present in trie",
+            "Present in trie"]
 
     # Trie object
     t = Trie()
@@ -69,11 +81,12 @@ def main():
         t.insert(key)
 
     # Search for different keys
-    print("{} ---- {}".format("2", output[t.search("2")]))
-    print("{} ---- {}".format("2201", output[t.search("2201")]))
-    print("{} ---- {}".format("1321", output[t.search("1321")]))
-    print("{} ---- {}".format("0", output[t.search("0")]))
-
+    print("{} ---- {}".format("the",output[t.search("the")]))
+    print("{} ---- {}".format("these",output[t.search("these")]))
+    print("{} ---- {}".format("their",output[t.search("their")]))
+    print("{} ---- {}".format("thaw",output[t.search("thaw")]))
 
 if __name__ == '__main__':
     main()
+
+# This code is contributed by Atul Kumar (www.facebook.com/atul.kr.007)
